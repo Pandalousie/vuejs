@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>VueJs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css" />
+    </head>
+    <body>
+        
+        <div class="ui inverted fixed menu">
+            <div class="header item">Découverte de VueJs | Les instances</div>
+        </div>
+
+        <div id="app" class="ui main container">
+            <h1>Liste de tache à faire</h1>
+            <div class="ui small form">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Entrer une tâche</label>
+                        <input type="text" v-model="taches">
+                    </div>
+                    <div class="field">
+                        <label>Selectionner le niveau d'importance de la tâche</label>
+                         <select v-model="inportance">
+                            <option value="red">majeur</option>
+                            <option value="orange">normal</option>
+                            <option value="green">mineur</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="ui primary basic button" @click="addList">Ajouter la tâche</button>
+            </div>
+            <hr>
+            <div class="ui horizontal bulleted list">
+                <a class="ui label" v-for="list in lists" :class="list[1]" @click="openModal">{{ list[0] }}<i class="delete icon"></i></a>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-rc.5/vue.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
