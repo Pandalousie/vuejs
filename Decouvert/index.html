@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>VueJs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css" />
+    </head>
+    <body>
+        
+        <div class="ui inverted fixed menu">
+            <div class="header item">Découverte de VueJs</div>
+        </div>
+
+        <div id="app" class="ui main container">
+            <div class="ui message success" v-if="isSuccess">
+                <i class="close icon" @click="closeSuccess"></i>
+                <div class="header">Je suis une popup success</div>
+                <p>Bravo, vous venez d'ouvrir la popup success grâce à VueJs !</p>
+            </div>
+            <h1>{{ message }}</h1>
+            <button type="button" class="ui positive basic button" @click="openSuccess" v-if="!isSuccess">Afficher une popup success</button>
+            <button type="button" class="ui negative basic button" @click="closeSuccess" v-else>Fermer la popup success</button>
+            <button type="button" class="ui positive basic button" @click="showLangage" v-if="!isLangage">Afficher la liste des langages utilisés sur ce site</button>
+            <button type="button" class="ui negative basic button" @click="hideLangage" v-else>Cacher la liste des langages utilisés sur ce site</button>
+
+            <div class="ui list" v-if="isLangage">
+                <div class="item" v-for="langage in langages"><i class="right triangle icon"></i> {{ langage }} </div>
+            </div>
+            <br><br>
+            <form action="#" class="ui fluid form">
+                <div class="field">
+                    <div class="ui pointing below label">Vous pouvez changer le titre du site</div>
+                    <input type="text" placeholder="Texte" :value="message" v-model="message">
+                </div>
+            </form>
+            
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-rc.5/vue.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
